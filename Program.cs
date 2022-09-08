@@ -15,11 +15,12 @@ else {
     playerScore.Value = Convert.ToInt32(File.ReadAllText(playerName + ".txt"));
 }
 
-do {
+while(true) {
     Console.Clear();
     Console.WriteLine($"Current Score: {playerScore.Value}");
+    if (Console.ReadKey().Key == ConsoleKey.Enter) break;
     playerScore.Value++;
-}while(Console.ReadKey().Key != ConsoleKey.Enter);
+}
 
 File.WriteAllText(playerScore.Name + ".txt", playerScore.Value.ToString());
 
